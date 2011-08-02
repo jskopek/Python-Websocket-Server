@@ -1,0 +1,19 @@
+<script type='text/javascript'>
+	var ws = new WebSocket("ws://127.0.0.1:2222");
+	console.log("State", ws.readyState);
+	ws.onopen = function() {
+		console.log("connected");
+	};
+
+	ws.onmessage = function( evt ) {
+		alert( evt.data );
+	};
+
+	ws.onclose = function() {};
+
+	function message() {
+		console.log( ws.send("Test message") );
+	}
+</script>
+
+<button onclick="message();">Send message</button>
